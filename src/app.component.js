@@ -23,7 +23,6 @@ class AppComponent {
         const renderOptions = {
             keyAmount: keyAmount,
             keyLetterDictionary: keyLetterDictionary,
-            bundleScriptLocation: bundleScriptLocation,
             waveFormTypes: waveFormTypes,
             envelopeTemplate: envelopeTemplate,
         };
