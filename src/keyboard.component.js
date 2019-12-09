@@ -49,6 +49,7 @@ export class KeyboardComponent {
         const bundleJSScript = [...document.querySelectorAll('script')]
         .filter(scriptEl => scriptEl.src.includes('bundle'));
 
+        // bundle.js script 
         const script = bundleJSScript[0];
 
         // prevent elems from appending after script in body
