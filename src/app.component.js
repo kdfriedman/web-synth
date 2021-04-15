@@ -1,11 +1,7 @@
 import { OscillatorComponent } from "./oscillator.component";
 import { ControlBoardComponent } from "./control-board.component";
 import { keyAmount } from "./config";
-import {
-  keyLetterDictionary,
-  waveFormTypes,
-  envelopeTemplate,
-} from "./const.js";
+import { keyLetterDictionary, waveFormTypes } from "./const.js";
 import { library, dom } from "@fortawesome/fontawesome-svg-core";
 import { fas } from "@fortawesome/free-solid-svg-icons";
 
@@ -18,7 +14,6 @@ class AppComponent {
 
   init() {
     this.bootstrapComponents();
-    this.convertSVGElementsOnLoad();
   }
 
   bootstrapComponents() {
@@ -26,7 +21,6 @@ class AppComponent {
       keyAmount: keyAmount,
       keyLetterDictionary: keyLetterDictionary,
       waveFormTypes: waveFormTypes,
-      envelopeTemplate: envelopeTemplate,
     };
 
     const controlBoard = new ControlBoardComponent(renderOptions);
@@ -34,16 +28,6 @@ class AppComponent {
 
     const oscillator = new OscillatorComponent();
     oscillator.wireUpSynth();
-
-    //getter returns keyboard component html container to use as parent element
-    controlBoard.retrieveHtmlContainerElem.children[0].children[0].children[0].appendChild(
-      envelope.retrieveHtmlContainerElem
-    );
-  }
-
-  convertSVGElementsOnLoad() {
-    this.library.add(this.fas);
-    this.dom.i2svg().then((svgElemLoaded) => console.log("svgs done"));
   }
 }
 
